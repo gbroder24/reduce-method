@@ -33,6 +33,11 @@ const teamMembers = [
     name: 'Kelly',
     profession: 'Designer',
     yrsExperience: 3
+  },
+  {
+    name: 'Mark',
+    profession: 'Manager',
+    yrsExperience: 10
   }
 ];
 
@@ -55,3 +60,26 @@ let experienceByProffession = teamMembers.reduce((acc, curr) => {
 }, {});
 
 console.log(experienceByProffession);
+
+// Grouping by a property, profession with names
+// { 
+//   Developer: ['Andrew', 'Ariel'],
+//   Designer: ['Michael', 'Kelly'],
+//   Manager: ['Mark']
+// } <-- this is what we want
+
+let nameByProfession = teamMembers.reduce((acc, curr) => {
+
+  let key = curr.profession;
+
+  if(!acc[key]) {
+    acc[key] = [];
+    acc[key].push(curr.name)
+  } else {
+    acc[key].push(curr.name)
+  }
+  return acc;
+
+}, {});
+
+console.log(nameByProfession);
