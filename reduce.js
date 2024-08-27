@@ -83,3 +83,9 @@ let nameByProfession = teamMembers.reduce((acc, curr) => {
 }, {});
 
 console.log(nameByProfession);
+
+const skillByProfession = teamMembers.filter(skill => skill.profession === 'Developer');
+console.log(skillByProfession);
+
+const experiencedDev = skillByProfession.filter(experience => experience.yrsExperience >=7);
+console.log(experiencedDev);
