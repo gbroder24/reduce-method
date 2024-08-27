@@ -89,3 +89,52 @@ console.log(skillByProfession);
 
 const experiencedDev = skillByProfession.filter(experience => experience.yrsExperience >=7);
 console.log(experiencedDev);
+
+let students = [
+  {
+      name: 'John',
+      subjects: ['maths', 'english', 'cad'],
+      teacher: {maths: 'Harry', english: 'Joan', cad: 'Paul'},
+      results: {maths: 90, english: 75, cad: 87},
+  },
+  {
+      name: 'Emily',
+      subjects: ['science', 'english', 'art'],
+      teacher: {science: 'Iris', english: 'Joan', art: 'Simon'},
+      results: {science: 93, english: 73, art: 95},
+  },
+  {
+      name: 'Adam',
+      subjects: ['science', 'maths', 'art'],
+      teacher: {science: 'Iris', maths: 'Harry', art: 'Simon'},
+      results: {science: 93, english: 88, maths: 97, art: 95},
+  },
+  {
+      name: 'Fran',
+      subjects: ['science', 'english', 'art'],
+      teacher: {science: 'Iris', english: 'Joan', art: 'Simon'},
+      results: {science: 93, english: 87, art: 95},
+  }
+];
+
+
+
+const biggest = students.reduce((prev, curr) => {
+  
+ 
+
+  prev = prev.max > curr.results.english ? prev : {name: curr.name, max: curr.results.english};
+   
+  return prev;
+  
+  //  if (prev.max > curr.results.english) {
+  //     // Keep the previous value
+  //     return prev;
+  // } else {
+  //     // Return a new object with the current student's name and max score
+  //     return { name: curr.name, max: curr.results.english };
+  // }
+  
+}, {});
+
+console.log(biggest);
